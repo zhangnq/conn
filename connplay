@@ -4,12 +4,12 @@ import __init__
 
 def usage():
     print
-    print '''\033[;32m  replay video of record infomation.
+    print '''\033[;32m
+    Replay video of record infomation.
 
     Usage:  %s ls               display all videos list.
             %s play video_name  play video file.
 
-            %s by 919953500@qq.com
     \033[0m''' % (sys.argv[0],sys.argv[0],sys.argv[0])
     sys.exit()
 
@@ -27,7 +27,7 @@ try:
         try:
             if sys.argv[2] in videolist:
                 print sys.argv[2]
-                cmd = './scriptreplay videos/%s.time videos/%s.his' % (sys.argv[2], sys.argv[2])
+                cmd = 'bin/scriptreplay videos/%s.time videos/%s.his' % (sys.argv[2], sys.argv[2])
                 os.system(cmd)
             else:
                 print 'choice play file name'

@@ -16,11 +16,12 @@ else:
 
 
 def usage():
-    print '''\033[;32m  connection remote hostname operator and record all infomation.
+    print '''\033[;32m
+    Connect remote host,record all operator and infomation.
 
-    Usage:  %s hostname or ip (default username current username,port 22)
-            %s user@ip (default port 22)
-            %s user@ip:port
+    Usage:  %s ip (use current username and port 22)
+            %s user@ip (use port 22)
+            %s user@ip:port (define special username and port)
     \033[0m''' % (sys.argv[0],sys.argv[0],sys.argv[0])
     sys.exit()
 

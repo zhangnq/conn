@@ -1,26 +1,29 @@
 conn
 ====
 
+版本：
+
+1.0 ：https://github.com/svenlu/conn
+
 审计在运维中占有很重要的一部分，审计追溯历史问题.conn是connection的前缀.   
 
-conn堡垒机:conn修改了paramiko的源码,支持详细日志审计和录像功能,conn服务器上每一步操作都能记录.  
-  conn命令:  登录远端服务器，并记录所有操作和录像  
-  connplay:  播放历史录像，审核服务器记录  
-  connhost:  正向和反向解析主机名或ip地址(可批量)  
+conn堡垒机
+
+conn修改了paramiko的源码,支持详细日志审计和录像功能,conn服务器上每一步操作都能记录.  
+conn命令:  登录远端服务器，并记录所有操作和录像  
+connplay:  播放历史录像，审核服务器记录  
+connhost:  正向和反向解析主机名或ip地址(可批量)  
 
 
 安装部署
 ```
     堡垒机安装
-    git clone https://github.com/shanhuhai5739/conn.git
+    git clone https://github.com/zhangnq/conn.git
     cd conn
     pip install -r requirements.txt -i http://pypi.douban.com/simple/
     客户机安装
     yum install xterm -y
     
-    如果想让conn支持tab显示主机，将下面命令编辑到/etc/profile
-    complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" conn
-    source /etc/profile
 ```
 
 登录主机
@@ -64,10 +67,4 @@ conn堡垒机:conn修改了paramiko的源码,支持详细日志审计和录像�
     connhost -f ipfile
       10.100.2.43  | hh-c2c-dev11.bj
       10.100.2.49  | hh-c2c-dev12.bj
-```
-
-联系我(珊瑚)
-```
-    QQ  : 919953500
-    QQ群: 222496448
 ```

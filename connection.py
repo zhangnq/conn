@@ -105,7 +105,7 @@ def posix_shell(chan):
 
 
         # needs to be sent to give vim correct size FIX
-        chan.send('eval $(resize)\n')
+        #chan.send('eval $(resize)\n')
 
 
         day =time.strftime('%Y%m%d')
@@ -118,7 +118,7 @@ def posix_shell(chan):
                 try:
                     x = u(chan.recv(1024))
                     if len(x) == 0:
-                        sys.stdout.write('\r\n*** EOF\r\n')
+                        #sys.stdout.write('\r\n*** EOF\r\n')
                         break
                     sys.stdout.write(x)
                     sys.stdout.flush()
@@ -208,7 +208,7 @@ try:
     chan = t.open_session()
     chan.get_pty()
     chan.invoke_shell()
-    print('*** Here we go!\n')
+    #print('*** Here we go!\n')
 
     #interactive.interactive_shell(chan)
     posix_shell(chan)
