@@ -34,7 +34,8 @@ try:
         except:
             print 'choice play file name'
     else:
-        raise error
+        print "replay error"
+        sys.exit()
 except:
         usage() 
         #pass

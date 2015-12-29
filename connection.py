@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import base64
 from binascii import hexlify
 import getpass
 import os
@@ -12,9 +11,6 @@ import traceback
 import paramiko
 from paramiko.py3compat import input
 from paramiko.py3compat import u
-import getpass
-# Import conn Lib
-from record import record_videos
 
 
 # windows does not have termios...
@@ -71,7 +67,7 @@ def manual_auth(username, hostname):
         try:
             t.auth_password(username, pw)
         except (paramiko.AuthenticationException, KeyboardInterrupt) as error:
-            print 'Permission denied, Authentication Error'
+            print 'Permission denied, Authentication Error: %s' % error
 
 
 username = getpass.getuser()
@@ -99,7 +95,6 @@ except Exception as e:
 
 
 def posix_shell(chan):
-    import select
     record = [] 
 
     oldtty = termios.tcgetattr(sys.stdin)
@@ -192,7 +187,8 @@ try:
         print('*** WARNING: Host key has changed!!!')
         sys.exit(1)
     else:
-        print('*** Host key OK.')
+        #print('*** Host key OK.')
+        pass
 
     # get username
     if username == '':

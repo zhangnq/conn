@@ -1,24 +1,31 @@
 #!/usr/bin/env python
+#coding:utf-8
+
 import os, sys
 import getpass
-# Import conn Lib
-import __init__
+import platform
+#import __init__
 from record import record_videos
 
-# set linux tab
-#if os.path.isfile(os.path.expanduser('~/.ssh/known_hosts')):
-#    cmd = '''complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" %s''' % sys.argv[0]
-#    os.system(cmd)
+sysstr=platform.system().strip()
+if sysstr == 'Windows':
+    pass
+elif sysstr == 'Linux':
+    # set tab
+    if os.path.isfile(os.path.expanduser('~/.ssh/known_hosts')):
+        cmd = '''complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" %s''' % sys.argv[0]
+        os.system(cmd)
+else:
+    print "Only support windows or linux,exit."
+    sys.exit()
 
 
 def usage():
-    print
     print '''\033[;32m  connection remote hostname operator and record all infomation.
 
-    Usage:  %s hostname or ip
-            %s user@hostname:port
-
-            %s by 919953500@qq.com
+    Usage:  %s hostname or ip (default username current username,port 22)
+            %s user@ip (default port 22)
+            %s user@ip:port
     \033[0m''' % (sys.argv[0],sys.argv[0],sys.argv[0])
     sys.exit()
 
