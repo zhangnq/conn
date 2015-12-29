@@ -1,22 +1,17 @@
 #!/usr/bin/env python
 #coding:utf-8
 
-import os, sys
+import sys
 import getpass
 import platform
 #import __init__
 from record import record_videos
 
 sysstr=platform.system().strip()
-if sysstr == 'Windows':
+if sysstr == 'Linux':
     pass
-elif sysstr == 'Linux':
-    # set tab
-    if os.path.isfile(os.path.expanduser('~/.ssh/known_hosts')):
-        cmd = '''complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" %s''' % sys.argv[0]
-        os.system(cmd)
 else:
-    print "Only support windows or linux,exit."
+    print "This script only support linux,exit."
     sys.exit()
 
 
